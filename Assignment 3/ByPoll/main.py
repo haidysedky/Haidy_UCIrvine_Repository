@@ -17,9 +17,10 @@ with open (csv_path,newline="") as csv_file :
 
 	for row in csv_reader:
 		Total_Votes = Total_Votes + 1
-		Votes_List_Origin.append(row[2])
-		if row[2] not in Candidates_List:
-			Candidates_List.append(row[2])
+		candidate_name = row[2]
+		Votes_List_Origin.append(candidate_name)
+		if candidate_name not in Candidates_List:
+			Candidates_List.append(candidate_name)
 
 
 	Votes_List = [Votes_List_Origin.count(candidate) for candidate in Candidates_List]
