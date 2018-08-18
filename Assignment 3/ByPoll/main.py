@@ -3,6 +3,7 @@ import csv
 
 Total_Votes = 0
 Candidates_List = []
+Votes_List= []
 Votes_List_Origin = []
 
 csv_path = os.path.join("ByPoll.csv")
@@ -19,12 +20,14 @@ with open (csv_path,newline="") as csv_file :
 		Votes_List_Origin.append(row[2])
 		if row[2] not in Candidates_List:
 			Candidates_List.append(row[2])
-	
+
+
 	Votes_List = [Votes_List_Origin.count(candidate) for candidate in Candidates_List]
 
 	Percentage_List = [percentage(Votes, Total_Votes) for Votes in Votes_List]
 
-	Winner_Candidate = Candidates_List[Votes_List.index(max(Votes_List))]
+	Max_Votes = max(Votes_List)
+	Winner_Candidate = Candidates_List[Votes_List.index(Max_Votes)]
 
 	All_Info_Tuple = zip(Candidates_List, Votes_List, Percentage_List)
 
