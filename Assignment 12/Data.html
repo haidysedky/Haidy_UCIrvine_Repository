@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap Visualization Dashboard</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<div class="latitude-box">
+			      					<li><a href="index.html"><h4>Latitude</h4></a></li>
+			      				</div>
+			      			</ul>
+							<ul class="nav navbar-nav navbar-right">
+						    	<li class="dropdown">
+						    		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+									<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+							        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="True">Plots<span class="caret"></span></a>
+							        <ul class="dropdown-menu">
+							        	<li><a href="MaxTemp.html">Max Temperature</a></li>
+							        	<li><a href="Humid.html">Humidity</a></li>
+							        	<li><a href="Cloud.html">Cloudiness</a></li>
+							        	<li><a href="Wind.html">Wind Speed</a></li>
+							        </ul>
+						        </li>
+						        <li><a href="Compare.html">Comparison</a></li>
+						        <li><a href="Data.html">Data</a></li>
+						    </ul>
+						</div>
+					</div><!-- /.navbar-collapse -->
+				</nav> <!-- navigation bar on the right collapse-->
+			</div> <!--col-md-5 collapse-->
+		</div> <!--row collapse-->
+	</div> <!--grid container collapse-->
+	<div class="main-box">
+		<div class="container">
+			<div class="box3">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Data</h1>
+						<hr>
+						<h5>The following table includes all of the data used for plotting during this project.</h5>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="image-title">
+							<h4>vs. Max Temperature</h4>
+							<img  width=390px height=200px src="Resources/assets/images/Fig1.png" alt="Fig1">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="image-title">
+							<h4>vs. Humidity</h4>
+							<img  width=390px height=200px src="Resources/assets/images/Fig2.png" alt="Fig2">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="image-title">
+							<h4>vs. Cloudiness</h4>
+							<img width=390px height=200px src="Resources/assets/images/Fig3.png" alt="Fig3">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="image-title">
+							<h4>vs. Wind Speed</h4>
+							<img  width=390px height=200px src="Resources/assets/images/Fig4.png" alt="Fig4">
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
