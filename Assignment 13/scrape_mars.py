@@ -17,10 +17,10 @@ def scrape():
     browser.visit(url)
     html = browser.html
     soup = bs(html, "html.parser")
-    sleep(3)
+    sleep(4)
     title = soup.find('div', class_="content_title")
     news_title  = title.text.strip()
-    sleep(3)
+    sleep(4)
     news_p = soup.find('div', class_='article_teaser_body').get_text()
     browser.quit()
 
@@ -57,7 +57,7 @@ def scrape():
     df.columns =  ['Type','Value']
     df.set_index(['Type'], inplace=True)
     html_table = df.to_html()
-    html_table = html_table.replace('\n', '')
+    ##html_table = html_table.replace('\n', '')
 
     # ## Mars Hemispheres
     browser = init_browser()
@@ -82,7 +82,8 @@ def scrape():
     mars_dictionary = {"news_title":news_title,
                        "news_p": news_p,
                        "featured_image_url": featured_image_url,
-                       "html_table": df.to_dict(),
+                       "mars_weather" : mars_weather,
+                       "html_table": html_table,
                        "hemisphere_image_urls":hemisphere_image_urls
                        }
     return (mars_dictionary)
