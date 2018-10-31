@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 from splinter import Browser
+from time import sleep
 
 
 def init_browser():
@@ -17,7 +18,7 @@ def scrape():
     html = browser.html
     soup = bs(html, "html.parser")
     title = soup.find('div', class_="content_title")
-    news_title  = (title.get_text()).strip()
+    news_title  = title.text.strip()
     news_p = soup.find('div', class_='article_teaser_body').get_text()
     browser.quit()
 
@@ -26,11 +27,12 @@ def scrape():
     url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
     browser.visit(url)
     browser.click_link_by_partial_text("FULL IMAGE")
-    #browser.click_link_by_partial_text("more info")
-    html = browser.html
-    soup = bs(html, 'html.parser')
-    md_image_link = 'https://www.jpl.nasa.gov' + soup.find("div", class_="buttons").a['href']
-    browser.click_link_by_href(md_image_link)
+    sleep(3)
+    browser.click_link_by_partial_text("more info")
+    #html = browser.html
+    #soup = bs(html, 'html.parser')
+    #md_image_link = 'https://www.jpl.nasa.gov' + soup.find("div", class_="buttons").a['href']
+    #browser.click_link_by_href(md_image_link)
     html = browser.html
     soup = bs(html, 'html.parser')
     featured_image_url = soup.find('figure', class_="lede").a ['href']
@@ -78,7 +80,7 @@ def scrape():
     mars_dictionary = {"news_title":news_title,
                        "news_p": news_p,
                        "featured_image_url": featured_image_url,
-                       "html_table":html_table,
+                       "html_table": df.to_dict(),
                        "hemisphere_image_urls":hemisphere_image_urls
                        }
     return (mars_dictionary)
