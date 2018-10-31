@@ -17,8 +17,10 @@ def scrape():
     browser.visit(url)
     html = browser.html
     soup = bs(html, "html.parser")
+    sleep(3)
     title = soup.find('div', class_="content_title")
     news_title  = title.text.strip()
+    sleep(3)
     news_p = soup.find('div', class_='article_teaser_body').get_text()
     browser.quit()
 
