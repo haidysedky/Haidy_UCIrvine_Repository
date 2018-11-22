@@ -61,8 +61,8 @@ date_input.on ("change", function() {
 	//{
     //table.deleteRow(i);
 	//};
-
-	d3.event.preventDefault();
+	table_body.html("");
+	//d3.event.preventDefault();
 
 //insert the tables filtered data
 	table_body = d3.select("#ufo-table").append("tbody")
